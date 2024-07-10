@@ -1,25 +1,47 @@
-# qa-test
+**QA Test Project**
 
-**Kubernetes Deployment:**
+**Overview**
 
-Deploy the services to a local Kubernetes cluster (e.g., Minikube or Kind).
+This project sets up and tests a frontend and backend service on a local Kubernetes cluster using Minikube.
 
-**Verification:**
+**Prerequisites**
 
-- Ensure the frontend service can successfully communicate with the backend service.
-- Verify that accessing the frontend URL displays the greeting message fetched from the backend.
+1. Minikube
+2. Kubectl
+3. Git
+4. Curl
 
-**Automated Testing:**
+**Setup**
 
-- Write a simple test script (using a tool of your choice) to verify the integration between the frontend and backend services.
-- The test should check that the frontend correctly displays the message returned by the backend.
+**Step 1: Start Minikube**
 
-**Documentation:**
+```sh
+minikube start
 
-- Provide a README file with instructions on how to set up and run the automated tests script.
+**Step 2: Clone the Repository**
+  git clone https://github.com/Vengatesh-m/qa-test.git
+  cd qa-test
 
-**Deliverables:**
-- Test script for automated testing.
-- README file with setup and execution instructions.
+**Step 3: Deploy the Services**
+  kubectl apply -f k8s/backend-deployment.yaml
+  kubectl apply -f k8s/backend-service.yaml
+  kubectl apply -f k8s/frontend-deployment.yaml
+  kubectl apply -f k8s/frontend-service.yaml
 
-**Github repo should be Public**
+**Verification**
+
+**Step 4: Get Frontend Service URL**
+  minikube service frontend-service
+
+**Step 5: Access Frontend URL**
+ Access the frontend URL provided by Minikube and check if it displays the greeting message fetched from the backend.
+
+**Automated Testing**
+
+**Step 6: Run the Test Script**
+
+  chmod +x test.sh
+  ./test.sh
+This script will verify if the frontend correctly displays the message returned by the backend.
+
+
