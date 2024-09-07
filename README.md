@@ -13,7 +13,7 @@ This project sets up and tests a frontend and backend service on a local Kuberne
 
 **Setup**
 
-# Step 1: Start Minikube
+**Step 1: Start Minikube**
 
 ```sh
 minikube start
